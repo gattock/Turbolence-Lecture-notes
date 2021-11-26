@@ -1,0 +1,188 @@
+%notes for prof: 
+%prof.check indicate the need of corrections
+
+\documentclass[a4paper,11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{physics}
+\usepackage {graphicx}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+	\begin{document}
+\title{%
+Turbolence and Mixing course by\\
+Professor Jaan Kalda, TalTech\\
+lecture notes by}
+\author{student Enrico Di Lavore}
+\date{26 November 2021}
+\maketitle
+
+
+	\section{Main topics, concepts and classification of turbolence}
+	
+\subsection {Trajectories:}
+Also called Pathlines, are typically a lagrangian idea. Are the trajectories of the individual fluid particles. 
+Those can be computed integrating the equation
+\[ d\mathbf{x}=\mathbf{v}(\mathbf{x},t) dt   \]
+given the initial positions.
+The direction of the trajectory is locally determined by the streamlines of the fluid at each moment in time.
+
+\subsection{Streamlines:}
+Are the family of curves that are instantaneously tangent to $\mathbf{V}$ vector field. These show the direction in which a massless (without inertia) fluid element would travel at any point in time.
+Streamlines are defined by:
+\[ \dv{\mathbf{x_s}}{s}  \times \mathbf{v}(\mathbf{x_s})=0  \Rightarrow \dv{\mathbf{x_s}}{s}\parallel  \mathbf{v}(\mathbf{x_s})   \] \\
+where s indicate the particular streamline (curvilinear abscissa) . Intuitively, the cross product equal to zero impose the two vectors to be parallel. From here the tangential direction.\\
+(The reader is suggested to check also Streamtube; Streamlines and timelines which provide a snapshot of some flowfield characteristics, whereas streaklines and pathlines depend on the full time-history of the flow)
+Note that if the flow is \textbf{stationary} then all those lines coincide. %check
+
+\subsection {Turbolence:} 
+In fluid dynamics, turbolence or turbulent flow is fluid motion characterized by \textbf{chaotic changes} in pressure and flow velocity. It cause mixing.\\
+The onset of turbulence can be predicted by the dimensionless \textbf{Reynolds number} $Re$, the ratio of kinetic energy to viscous damping in a fluid flow. $Re=\frac{v \cdot L}{\nu}$
+
+\subsection{Laminar flow:}
+ It occurs when a fluid flows in parallel layers, with no disruption between those layers.
+ The shear forces between stream lines cause a typical speed function. 
+ It is characterised by small values of $Re$ number
+ Can be seen in the picture that the speed is constant everywhere and decreasing with a certain function close to the plumb surface. 
+ This is known as \textbf{boundary layer}.
+ %attach boundary layer graph pic
+
+\subsection{Mixing:}
+It is a \textbf{random transport} of \emph{something} (passive or active, scalar or vector field) \\ %attach turbolence pics
+Vectorial field case equation:
+\[ \dv{\mathbf{n}}{t} =\pdv{\mathbf{n}}{t}+(\mathbf{v} \nabla)\mathbf{n} = D \cdot \Delta \mathbf{n} \]
+-The first term $\dv{n}{t}$ is the Lagrangian (material) derivative \\
+-In the second term $\pdv{n}{t}$ is the Eulerian derivative
+
+ 
+\subsection{Passive: vector field or scalar}
+ A vector field $\mathbf{A}$ (or a scalar $A$) is said to be passive if the velocity field does \textbf{not depend} on $\mathbf{A}$ (or $A$) mixing state evolution.
+ $ \mathbf{v} \neq f(\mathbf{A}(\mathbf{X},t) $  ( or $ \mathbf{v} \neq f(A(\mathbf{X},t) $ )
+	\subsubsection{e.g. Passive scalar:}
+If we consider heat diffusion in a mixing process, in Hp. of \emph{incompressible} fluid we can write that  $ \rho(T)=const. $ \\
+In this case T° is an attribute of the \emph{fluid particle} that does not influence the motion of the fluid itself. \\
+Other examples of scalars that are good to be modeled as passive: \\
+$\cdot$ \emph{Dye concentration} $\mathbf{n}$ in a fluid (which values as $\rho , \nu ...$ must be similar enough to the fluid ones in order to not influence the time evolution) is considered passive if its concentration is low enough. \\
+$\cdot$ Others? %prof.check
+	\subsubsection{e.g. Passive vector field:} %prof.check
+If we consider electro-magnetic field in a medium (as water) while studing ships propellers phenomena as cavitation or flutter, then is a good Hp. to consider E-M field as a \textbf{passive vector field}. 
+Indeed it is not influencing noticeably the solution $\mathbf{v}(\mathbf{X},t)$ of this particular problem. 
+%not the best example: could be misunderstood with the fact that EM is useless quantity in this problem. By the way, if it was active, then it should be considered.
+ 
+ \subsection{Active: vector field or scalar}
+ A vector field $\mathbf{A}$ or scalar $A$ is said to be active if the velocity field does \textbf{depend} on $A$ mixing state evolution.
+  $ \mathbf{v} = f(\mathbf{A}(\mathbf{X},t) $  ( or $ \mathbf{v} = f(A(\mathbf{X},t) $ )
+	\subsubsection{e.g. Active scalar:}
+We consider again $T$ in a fluid. This time the latest is said \emph{compressible} if 
+$ \rho(T°) \neq const. $\\
+As in convection phenomena, $\nabla\rho$ generates buoyancy forces among the fluid particles. In this case, $T$ is influencing the motion through density.
+	\subsubsection{e.g. Active vector field:} %prof.check
+$\cdot$ If we are considering a star, here we must consider the E.M. field propagating through the plasma as an active vector field: 
+indeed it generates reciprocal forces between two infinitesimal volumes of plasma $dV_1$ and $dV_2$. \\
+This forces generate accelerations which, integrated over time, influence $\mathbf{v}$ field.
+This will be seen in a later chapter regarding Magneto-Hydro-Dynamics (MHD).
+By the way, if the field is small in the (so called) kinematic magnetic dynamo, then it can be considered passive. 
+Magnetic dynamo equation: \[ [\pdv{}{t}+(\mathbf{v}\nabla)] \mathbf{B}=D \Delta \mathbf{B} \]
+%Why B field exist in stars, planets, where I comes from? Broken instable equilibria flowing to stability R->0
+$\cdot$The angular speed $\omega$ is active vector field by definition: indeed
+\[  \omega=\nabla \times \mathbf{v} \]
+Turbolence, as the mixing problem of an active field, is the last unsolved problem of classical physics: the vorticity.
+
+\subsection{Mixing of passive scalars:}
+\[ \pdv{n}{t}+(\mathbf{v} \nabla)n = D \cdot \Delta n \]
+We can define compressibility P as $P=\frac{<v_{pot}^2>}{<v_{pot}^2>+<v_{sol}^2>}$\\
+where \emph{pot} stands for \textbf{potential component} and \emph{sol} for \textbf{solenoidal component}. We see that $P \in [0;1]$, (0 means incompressible).
+
+\subsubsection{Helmoltz decomposition analogy:}
+What we have just seen comes from the decomposition of the velocity vector field into its solenoidal component (vector potential) \textbf{A} and potential component $\phi$
+\[  \mathbf{v}=\nabla \times \mathbf{A}-\nabla\phi \]
+This is analogue to see first and second Maxwell equations in the solenoidal-potential framework:
+\[  div(\mathbf{B})=\nabla \cdot \mathbf{B}=0 \Rightarrow \mathbf{B}=\nabla\times\\mathbf{A} \]
+\[  \nabla \times \mathbf{E}=0 \Rightarrow \mathbf{E}=-\nabla\phi  \]
+
+
+%What is ??????????????????????????????????
+%Weak turbolence? Perturbation theory on lin. solution (e.m. sounds, fluid sounds..)
+%Strong turbolence: we have coherent structures and non linearity. 
+%coherency
+
+\subsection{Sound propagation}
+The set of equations involved into the sound propagation is composed by:
+\subsubsection{Continuity equation:}
+\[  (\pdv{}{t}+\nabla \cdot \mathbf{v})\rho=0 \Rightarrow \pdv{\rho}{t}=- \rho ( \nabla \cdot \mathbf{v})     \] where $|v|<<C_s (sound speed)$
+
+Its meaning is related with Divergence theorem: %check, explanation
+we can see that the time derivative of the density is equal in modulus to the velocity vector field divergence times the density. 
+If we see the intuitive meaning of the divergence of the velocity vector field (i.e. how much a point behave as a source or sink), by multiplying by the density, we get how much the point behaves as``mass source `` (or sink). 
+That is the time derivative of the local density.
+\subsubsection{ Newton $2^{nd}$ law (Linear momentum balance law):}
+\[   (\pdv{}{t}+\mathbf{v}\nabla)\mathbf{v}=- \frac{\nabla p}{\rho} \]
+Basically it is $a=\frac{F}{m}=\frac{F}{\rho \cdot V}$ with volume V$\rightarrow 0$; with the acceleration explicited in Eulerian form on the left-hand side
+\subsubsection{Adiabatic law: $p \rho^{-\gamma}=const.$}
+Hp. the air parcel, subjected to repeated compression-decompression cycles, does not exchange heat with its neighbour parcels, although heat is actually flowing from the high pressure zones (that have just increased their temperature adiabatically starting from common average temperature) to the low pressure zones (with lower temperature for the same reason).
+%Feynman diagrams, perturbation theory: linear solution??
+
+\subsection{Lengmuir waves in 2D:}
+Let $G_e^-$ be a set of electrons laying on a rigid square grid (frame) of $n \times m$ elements $(n,m) \in \mathbb{N}$. Similarly, let $G_p^+$ be a set of protons laying on another square grid of  $n \times m$ elements. \\
+We overlap those two grids, but with certain phase-shifts along two axis: $\lambda_x$ and $\lambda_y$. \\ (See picture). %attach pic.
+We can intuitively see that the minimum of the electro-static potential happens when the phase-shifts $\lambda_x=\lambda_y=0$. 
+This is the global minimum. (The proof is left to the reader). \\
+Also, the electrostatic potential will increase while getting away from the main overlapping mode ( when $\lambda_x=\lambda_y=0$ and boundaries of the grid also coincide).
+The reader can prove that there will be also others equilibria, corresponding to a shift equal to the grid spacing. \\ The latest are local minima.\\ %attach sketch? 
+
+This system, if left with initial conditions $\lambda_x \neq 0 $ or $\lambda_y \neq 0 $ will oscillate ``as a pendulum'' around the minimum. 
+Beware to the fact that this is not exactly an harmonic oscillator, since the electrostatic force $f_{q_1 q_2} \propto r_{1,2}^{-2}$, instead the spring force is linear.
+The same idea can be applied to not-squared grids (e.g. exagonal grid) and in more than 2 dimensions.
+%rigid n body proble, if give a mass, will get kepler trajectories?
+
+\subsubsection{$n,m \rightarrow \infty$ case} 
+We can also intuitively see that with $n,m \rightarrow \infty$, the function electric potential $U=U(\lambda_x,\lambda_y)$ tend to be a periodic function, and every of the $\infty^2$ minima will be at the same potential $U$.
+
+\subsubsection{Modulation instability:}
+%Attach picture of stable and unstable
+Stable is sol of non-linear Shroedinger equation. See graph.
+Important for optical cable communication: solitons=very short pulse
+%solitons=? see travelling waves packets (QM MIT)
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ \section{Appendix:convenctions,symbols and letters}
+ If it is not specified else, then:\\
+ -bold letters refers to vectors, otherwise are scalars\\
+ -Hp. $\leftrightarrow$ Hypothesis\\
+
+	 \subsection{Greek and standard alphabet:}
+$\times$ vectorial (cross) product
+ $T$ temperature $[°K]$\\
+ $\rho$ density $[kg \cdot m^{-3}]$\\
+ $\nu$ kinematic viscosity $[m^2 \cdot s^{-1}]$
+ $n$ concentration $[m^{-3}]$\\
+ $\mathbf{B}$ magnetic field $[T=kg\cdot s^{-2}\cdot A^{-1}]$ \\
+  $\mathbf{v}$ velocity $[m \cdot s^{-1}]$\\
+ acceleration: in n-dim
+ \[ \mathbf{a}= \dv{\mathbf{v}}{t}=(a_j)=(\pdv{v_j}{t}+ \sum_{i=1}^{n} v_i \pdv{v_j}{x_i} ) \]
+ 
+ 
+ 	\subsection{Math symbols:} %just in case, never know
+ 	
+ Laplacian: sum of the $2^{nd}$ order partial derivatives\\
+ \[ \Delta=\sum_{i=1}^{n} \pdv{}{x^2_i} \]  \\
+ gradient: vector of the $1^{st}$ order partial derivatives\\
+ \[ \nabla= (\pdv{}{x_i}) \]  \\
+ 
+\end{document}
